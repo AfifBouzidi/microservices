@@ -1,0 +1,22 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Author first name</td>
+			<td>Author last name</td>
+			<td>Isdn</td>
+			<td colspan="2">Rating</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let book of books">
+			<td>{{ book.title }}</td>
+			<td>{{ book.authorFirstName }}</td>
+			<td>{{ book.authorLastName }}</td>
+			<td>{{ book.isdn }}</td>
+			<td><ngb-rating [(rate)]="book.ratings" (rateChange)="rate(book)"></ngb-rating></td>
+		</tr>
+	</tbody>
+</table>
+<hr>

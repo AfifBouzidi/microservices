@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Title</label>
+          <input type="text" class="form-control" formControlName="title" #title />
+        </div>
+        <div *ngIf="angForm.controls['title'].invalid && (angForm.controls['title'].dirty || angForm.controls['title'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['title'].errors.required">
+            Title is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Author first name</label>
+          <input type="text" class="form-control" formControlName="authorFirstName" #authorFirstName/>
+        </div>
+        <div *ngIf="angForm.controls['authorFirstName'].invalid && (angForm.controls['authorFirstName'].dirty || angForm.controls['authorFirstName'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['authorFirstName'].errors.required">
+            Author first name is required.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-4">Author last name</label>
+          <input type="text" class="form-control" formControlName="authorLastName" #authorLastName/>
+        </div>
+        <div *ngIf="angForm.controls['authorLastName'].invalid && (angForm.controls['authorLastName'].dirty || angForm.controls['authorLastName'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['authorLastName'].errors.required">
+            Author last name is required.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-4">Isdn</label>
+          <input type="text" class="form-control" formControlName="isdn" #isdn/>
+        </div>
+        <div *ngIf="angForm.controls['isdn'].invalid && (angForm.controls['isdn'].dirty || angForm.controls['isdn'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['isdn'].errors.required">
+            Isdn is required.
+          </div>
+        </div>
+        
+          <div class="form-group">
+            <button (click)="addBook(title.value, authorFirstName.value, authorLastName.value, isdn.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+          </div>
+      </form>
+    </div>
+  </div>
